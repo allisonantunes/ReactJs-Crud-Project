@@ -4,7 +4,16 @@ import "./App.css";
 function App() {
   const [values, setValues] = useState({});
 
-  const handleChangeValues = () => {};
+  const handleChangeValues = (event) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleClickButton = () => {
+    console.log(values);
+  };
 
   return (
     <div className="app-container">
@@ -23,6 +32,7 @@ function App() {
           name="cost"
           placeholder="Preço"
           className="register-input"
+          onChange={handleChangeValues}
         ></input>
 
         <input
@@ -30,8 +40,11 @@ function App() {
           name="category"
           placeholder="Categoria"
           className="register-input"
+          onChange={handleChangeValues}
         ></input>
-        <button className="register-button">Cadastrar</button>
+        <button className="register-button" onClick={() => handleClickButton()}>
+          Cadastrar
+        </button>
       </div>
     </div>
   );
