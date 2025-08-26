@@ -22,7 +22,14 @@ function App() {
         category: values.category,
       })
       .then((Response) => {
-        console.log(Response);
+        setListGames([
+          ...listGames,
+          {
+            name: values.name,
+            cost: values.cost,
+            category: values.category,
+          },
+        ]);
       });
   };
 
@@ -71,7 +78,7 @@ function App() {
               key={value.id}
               listCards={listGames}
               setListCard={setListGames}
-              id={value.id}
+              id={value.idgames}
               name={value.name}
               cost={value.cost}
               category={value.category}
